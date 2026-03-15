@@ -24,7 +24,16 @@ QUERIES = {
 
 
 class App(tk.Tk):
+    """
+    Graphical user interface for executing predefined
+    database queries for the University RMS system.
+    """
+
     def __init__(self):
+        """
+        Initialise the main application window and prepare
+        the query interface components.
+        """
         super().__init__()
         self.title("University RMS - Query Interface")
         self.geometry("900x520")
@@ -36,6 +45,10 @@ class App(tk.Tk):
         self._render_param_fields()
 
     def _build_ui(self):
+        """
+        Build the main GUI layout including query selection,
+        parameter inputs, and results table.
+        """
         top = ttk.Frame(self, padding=12)
         top.pack(fill="x")
 
@@ -67,6 +80,10 @@ class App(tk.Tk):
         self.tree.configure(yscrollcommand=scroll.set)
 
     def _render_param_fields(self):
+        """
+        Dynamically render parameter input fields depending
+        on the selected query.
+        """
         for w in self.params_frame.winfo_children():
             w.destroy()
         self.param_entries.clear()
@@ -89,6 +106,10 @@ class App(tk.Tk):
             self.param_entries[key] = entry
 
     def _run_query(self):
+        """
+        Execute the selected query using the parameters
+        provided by the user and display the results.
+        """
         query_name = self.query_var.get()
         params = {k: e.get().strip() for k, e in self.param_entries.items()}
 
@@ -104,10 +125,16 @@ class App(tk.Tk):
             messagebox.showerror("Query Error", str(e))
 
     def _clear_results(self):
+        """
+        Clear the results table.
+        """
         self.tree.delete(*self.tree.get_children())
         self.tree["columns"] = []
 
     def _show_results(self, headers, rows):
+        """
+        Display query results in the table widget.
+        """
         self._clear_results()
         self.tree["columns"] = headers
 

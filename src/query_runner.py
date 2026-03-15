@@ -8,6 +8,17 @@ from queries import (
 
 
 def run_query(query_name: str, params: dict):
+    """
+    Executes one of the predefined database queries based on the query name.
+
+    Args:
+        query_name (str): Name of the query selected in the GUI.
+        params (dict): Parameters provided by the user for the query.
+
+    Returns:
+        tuple: Column headers and rows returned from the query.
+    """
+
     if query_name == "Students in a course taught by a lecturer":
         rows = students_by_lecturer_and_course(
             params.get("LecturerFirstName"),

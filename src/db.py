@@ -3,6 +3,10 @@ from config import DbConfig
 
 
 def get_connection():
+    """
+    Creates and returns a connection to the MySQL database
+    using the configuration defined in the DbConfig class.
+    """
     cfg = DbConfig()
 
     return mysql.connector.connect(
