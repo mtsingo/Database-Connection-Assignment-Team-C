@@ -139,6 +139,49 @@ project-folder/
 ```
 
 ---
+ 
+## Testing the Database and Application
+ 
+This section explains how to validate the database structure and confirm the Python application queries are working correctly.
+ 
+### Setup
+ 
+Before running any tests, ensure the following:
+ 
+1. The project is downloaded and the Python environment is configured with all required packages.
+2. MySQL Server is running and the database connection in the `.env` file is correctly configured.
+ 
+---
+ 
+### Running the Database Tests
+ 
+1. Open the file `test/test_queries.sql` in **MySQL Workbench**.
+2. Execute the queries to validate the database structure, data integrity, and relationships. These tests check for things such as:
+   - Students enrolled in multiple courses
+   - Lecturers teaching multiple courses
+   - Foreign key constraint enforcement
+3. Review the results in MySQL Workbench — queries should return correct data or reject invalid inputs as expected.
+ 
+---
+ 
+### Python Application Validation
+ 
+1. Launch the GUI application:
+ 
+```bash
+python3 src/gui.py
+```
+ 
+2. Select one of the five predefined queries from the interface and enter any required parameters.
+3. Confirm that the application returns the expected results in the interface.
+ 
+---
+ 
+### Testing Notes
+ 
+> - If a query fails, check that table names and foreign key relationships are correctly defined in the database.
+> - All test cases have been verified to run correctly in `test/test_queries.sql` and through the Python GUI.
+> - These tests ensure the system maintains **data integrity**, performs queries **accurately**, and handles **invalid inputs** properly.
 
 ## Notes
 
