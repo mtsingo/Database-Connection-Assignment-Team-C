@@ -1,142 +1,154 @@
-DATABASE CONNECTION ASSIGNMENT – TEAM C
+# Database Connection Assignment – Team C
 
-PROJECT OVERVIEW
+## Project Overview
 
-This project contains a Python application that connects to a MySQL database and allows users to run predefined queries through a graphical interface.
+This project is a Python application that connects to a **MySQL database** and allows users to execute predefined queries through a graphical user interface (GUI) — no manual SQL writing required.
 
-The application connects to the database called:
+**Database name:** `college_db_EMA`
 
-college_db_EMA
+---
 
-Users can run queries from the interface instead of writing SQL manually.
+## Prerequisites
 
+Before setting up the project, ensure you have the following installed:
 
-SETUP INSTRUCTIONS
+- [Python](https://www.python.org/downloads/) (v3.7 or higher)
+- [MySQL Server](https://dev.mysql.com/downloads/mysql/)
+- [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
 
+---
 
-1. Install Python
+## Setup Instructions
 
-Download Python from:
+### 1. Install Python
 
-https://www.python.org/downloads/
+Download and install Python from [python.org](https://www.python.org/downloads/).
 
-During installation make sure you check:
+> During installation, make sure to check **"Add Python to PATH"**.
 
-Add Python to PATH
+---
 
+### 2. Create the Database
 
-2. Install MySQL
+1. Open **MySQL Workbench** and connect to your local MySQL server.
+2. Run the following SQL commands:
 
-Install the following programs:
-
-MySQL Server  
-MySQL Workbench
-
-
-3. Create the Database
-
-Open MySQL Workbench.
-
-Run the following commands:
-
+```sql
 CREATE DATABASE college_db_EMA;
 USE college_db_EMA;
+```
 
-Then open the file:
+3. Open the file `college_db_EMA_full.sql` and run it to create all tables and insert the data.
 
-college_db_EMA_full.sql
+---
 
-Run the script to create all tables and insert the data.
+### 3. Download the Project
 
+Clone the repository or download the ZIP and extract it:
 
-4. Download the Project
+```bash
+git clone <repository-url>
+cd <project-folder>
+```
 
-Download or clone the repository.
+---
 
-Open the project folder.
-
-
-5. Install Required Python Packages
+### 4. Install Required Python Packages
 
 Open a terminal inside the project folder and run:
 
-pip install mysql-connector-python  
+```bash
+pip install mysql-connector-python
 pip install python-dotenv
+```
 
+Or install everything at once using the requirements file:
 
-6. Configure the Database Connection
+```bash
+pip install -r requirements.txt
+```
 
-Create a file called:
+---
 
-.env
+### 5. Configure the Database Connection
 
-in the main project folder.
+Create a file named **`.env`** in the root of the project folder and add the following:
 
-Add the following lines inside the file:
-
-DB_HOST=127.0.0.1  
-DB_PORT=3306  
-DB_USER=root  
-DB_PASSWORD=YOUR_MYSQL_PASSWORD  
+```env
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=YOUR_MYSQL_PASSWORD
 DB_NAME=college_db_EMA
+```
 
-Replace:
+> 🔑 Replace `YOUR_MYSQL_PASSWORD` with the password you use to log into MySQL.
+>
+> **Example:**
+> ```env
+> DB_PASSWORD=MySQL123
+> ```
 
-YOUR_MYSQL_PASSWORD
+---
 
-with the password you use to log into MySQL.
-
-Example:
-
-DB_PASSWORD=MySQL123
-
-
-7. Run the Application
+### 6. Run the Application
 
 Open a terminal in the project folder and run:
 
+```bash
 python src/gui.py
+```
 
-A graphical window will open where you can run the database queries.
+A graphical window will open where you can execute the available database queries.
 
+---
 
-AVAILABLE QUERIES
+## Available Queries
 
-The application supports the following queries:
+The application supports the following predefined queries:
 
-1. Find all students enrolled in a specific course taught by a particular lecturer  
-2. Search for lecturers with expertise in a particular area  
-3. List all courses taught by lecturers in a specific department  
-4. Find all staff members employed in a specific department  
-5. Find all lecturers who work for a particular research project
+| # | Query Description |
+|---|-------------------|
+| 1 | Find all students enrolled in a specific course taught by a particular lecturer |
+| 2 | Search for lecturers with expertise in a particular area |
+| 3 | List all courses taught by lecturers in a specific department |
+| 4 | Find all staff members employed in a specific department |
+| 5 | Find all lecturers who work for a particular research project |
 
+---
 
-PROJECT STRUCTURE
+## Project Structure
 
-database/  
-    college_db_EMA_full.sql  
+```
+project-folder/
+│
+├── database/
+│   └── college_db_EMA_full.sql
+│
+├── src/
+│   ├── app.py
+│   ├── config.py
+│   ├── db.py
+│   ├── gui.py
+│   ├── queries.py
+│   └── query_runner.py
+│
+├── .env                  ← Created by each user (not committed to version control)
+├── requirements.txt
+└── README.md
+```
 
-src/  
-    app.py  
-    config.py  
-    db.py  
-    gui.py  
-    queries.py  
-    query_runner.py  
+---
 
-requirements.txt  
-README.md  
+## Notes
 
+- The database schema was provided by the **database team**.
+- The Python application implements the **software layer** that connects to the database and executes the queries.
+- Each team member must configure their **own** `.env` file with their personal MySQL password.
+- The `.env` file should **never** be shared or committed to version control.
 
-NOTES
+---
 
-The database schema was provided by the database team.
+## Authors
 
-The Python application implements the software layer that connects to the database and runs the queries.
-
-Each user must configure their own MySQL password inside the .env file.
-
-
-AUTHOR
-
-Application Team
+**Application Team – Team C**
