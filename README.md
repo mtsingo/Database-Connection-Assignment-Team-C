@@ -1,6 +1,3 @@
-# Database-Connection-Assignment-Team-C
-New Repo
-
 DATABASE CONNECTION ASSIGNMENT – TEAM C
 
 PROJECT OVERVIEW
