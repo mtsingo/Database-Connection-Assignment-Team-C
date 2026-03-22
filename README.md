@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project is a Python application that connects to a **MySQL database** and allows users to execute predefined queries through a graphical user interface (GUI).
+This project creates a Python application that connects to a **MySQL database** and allows users to execute predefined queries through a graphical user interface (GUI).
 
 **Database name:** `college_db_EMA`
 
