@@ -133,6 +133,9 @@ project-folder/
 │   ├── queries.py
 │   └── query_runner.py
 │
+├── test/
+│   ├── test_queries.sql
+|
 ├── .env                  ← Created by each user (not committed to version control)
 ├── requirements.txt
 └── README.md
